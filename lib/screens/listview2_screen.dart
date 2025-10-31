@@ -13,13 +13,13 @@ class ListView2Screen extends StatelessWidget {
         title: Text('ListView Tipo 2'),
         backgroundColor: Colors.blue,
       ),
-      body: ListView(
-        children: [
-          ...options.map((e) => ListTile(
+      body: ListView.separated(
+        itemBuilder: (context, index) => ListTile(
             trailing: Icon(Icons.arrow_forward_ios_outlined),
-            title: Text(e),
-          )).toList()
-        ],
+            title: Text(options[index]),
+          ),
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: options.length,
       )
     );
   }
